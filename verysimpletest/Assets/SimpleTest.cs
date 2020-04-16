@@ -10,9 +10,17 @@ public class SimpleTest : MonoBehaviour
 
     IEnumerator Start()
     {
+        //try
+        //{
+        //    DebugManager.Instance.Log("application started");
+        //}
+        //catch (System.Exception e)
+        //{
+        //    uitext1.text = e.ToString();
+        //}
+        
         DebugManager.Instance.Log("application started");
-
-        uitext1.text = DebugManager.Instance.path;
+        uitext1.text = DebugManager.Instance.filepath;
 
         while(true)
         {
