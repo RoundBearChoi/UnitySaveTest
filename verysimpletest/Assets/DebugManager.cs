@@ -22,6 +22,7 @@ public class DebugManager : Singleton<DebugManager>
             filepath = Application.persistentDataPath + Path.DirectorySeparatorChar + "UnityConsoleLog.txt";
 
             Log("attempting writing log file: " + filepath);
+
             File.WriteAllText(filepath, System.DateTime.Now.ToString() + "\n\n");
 
             Log("log file created: " + filepath);
