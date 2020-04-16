@@ -6,32 +6,34 @@ public class SimpleTest : MonoBehaviour
 {
     public UnityEngine.UI.Text uitext1;
     public UnityEngine.UI.Text uitext2;
+    public UnityEngine.UI.Text uitext3;
     int simpleint = 0;
 
     IEnumerator Start()
     {
-        //try
-        //{
-        //    DebugManager.Instance.Log("application started");
-        //}
-        //catch (System.Exception e)
-        //{
-        //    uitext1.text = e.ToString();
-        //}
-        
         DebugManager.Instance.Log("application started");
         uitext1.text = DebugManager.Instance.filepath;
 
-        while(true)
+        simpleint = SaveManager.Instance.LoadInt();
+        ShowInt();
+        uitext3.text = SaveManager.Instance.filepath;
+
+        while (true)
         {
             yield return new WaitForSeconds(1f);
             RaiseNumber();
+            SaveManager.Instance.SaveInt(simpleint);
         }
     }
 
     void RaiseNumber()
     {
         simpleint++;
+        ShowInt();
+    }
+
+    void ShowInt()
+    {
         uitext2.text = simpleint.ToString();
     }
 }
